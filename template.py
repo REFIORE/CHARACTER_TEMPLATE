@@ -4,7 +4,6 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def main():
     number_cards = int(input('Введите количество карточек: '))
-    page = 0
 
     for num in range(number_cards):
         env = Environment(
@@ -97,9 +96,7 @@ def main():
             third_skill=skills[2],
         )
 
-        page += 1
-
-        with open(f'characters/index_{page}.html', 'w', encoding="utf8") as file:
+        with open(f'characters/index_{num+1}.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
 
 
